@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="Desmond Opoku Anane" />
+
+    <title>AutoCarView</title>
+    {% load static %}
+
+    <!-- Bootstrap core CSS -->
+    <link href="{%static 'css/bootstrap.min (darkly).css'%}" rel="stylesheet" />
+
+    <!-- Custom Style CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css'%}" />
+  </head>
+  <body>
+    {% block 'body'%} {% endblock %}
+  </body>
+  {% block 'footer'%}
+  <footer>
+    <div class="container" id="container">
+      <p class="float mb-1">
+        powered by <a href="http//:django.com">django</a>
+      </p>
+      <p class="mb-1">
+        AutoCarView- Best place to Sell, Hire and Buy your Cars</p>
+        <P class="mb-0">© Copyright {%now 'Y'%}<a href="">AutoCarMax</a>
+        </P>
+    </div>
+  </footer>
+  {%endblock%}
+</html>
