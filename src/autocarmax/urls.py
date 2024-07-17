@@ -16,8 +16,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
+from users import urls as users_app_urls
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include("main.urls"))
+    path('', include("main.urls")),
+    path('', include(users_app_urls))
+
 ]
+if settings.DEBUG: # since i will be using AWS for hosting this site  the functo=ion will apply to only  this if the degug is true
+    urlpatterns += static(settings.MEDIA_ROOT, document_root= settings.MEDIA_URL)
