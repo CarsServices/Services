@@ -1,32 +1,32 @@
+<!-- templates/login.html -->
 {% extends "base/base.html" %}
 {% load static %}
+{% load crispy_forms_tags %}
+
 {% block body %}
 <div class="text-center" style="display: flex; align-items: center; justify-content: center; height: 100vh;">
     <main class="form-signin" style="max-width: 330px; width: 100%;">
         <form action="" method="post" style="margin-top: 20px;">
-            <img class="mb-4" src="{% static 'images/logo3.png' %}" alt="Logo" width="200" height="200" style="display: block; margin: auto; width: 100%; height: auto;">
-            <div style="margin-top: 10px;">
-                {{ login_form }}
-            </div>
-            <button type="submit" style="font-size: 30; width: 50%; margin-top: 20px; justify-content: center; background-color: #007bff; color: white; border: none; padding: 10px; cursor: pointer; transition: background-color 0.3s ease;">
+            {% csrf_token %}
+            <img class="mb-4" src="{% static 'images/logo.png' %}" alt="Logo" width="200" height="200" style="display: block; margin: auto;">
+            {{ login_form|crispy }}
+            <button type="submit" style="font-size: 16px; width: 100%; margin-top: 20px; background-color: #007bff; color: white; border: none; padding: 10px; cursor: pointer; transition: background-color 0.3s ease;">
                 Sign In
             </button>
         </form>
     </main>
 </div>
+{% endblock %}
 
+{% block footer %}
 <footer style="margin-top: 20px; text-align: center;">
     <div class="container" id="container">
         <p style="margin-bottom: 10px;">
-            Powered by <a href="http://Skimmer Wheels.com" style="color: #333;">Skimmer Wheels</a>
+            Powered by <a href="http://SkimmerWheels.com" style="color: #333;">Skimmer Wheels</a>
         </p>
         <p>
-           </br>
             © Copyright {% now 'Y' %} <a href="" style="color: #333;">AutoCarMax</a>
         </p>
     </div>
 </footer>
-{% endblock %}
-
-{% block footer %}
 {% endblock %}
