@@ -22,12 +22,13 @@
   <body>
     {%if messages %}
     {%for message in messages%}
-    <div>
+    <div {%if message.tags %}class ="alert alert-{{message.tags }}"{% endif %}>
       {{ message }}
+      {{message.tags}}
     </div>
     {%endfor%}
     {%endif%}
-    {% block body %} 
+    {% block body %}
     {% endblock %}
   </body>
   {% block footer%}
