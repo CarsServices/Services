@@ -20,15 +20,16 @@
     <link rel="stylesheet" href="{% static 'css/style.css'%}" />
   </head>
   <body>
-    <!-- {%if messages%}
+    {%if messages %}
     {%for message in messages%}
-    <div>
-      {{message}}
+    <div {%if message.tags %}class ="alert alert-{{message.tags }}"{% endif %}>
+      {{ message }}
+      {{message.tags}}
     </div>
-    {%end for%}
+    {%endfor%}
     {%endif%}
-    {% block body %} 
-    {% endblock %} -->
+    {% block body %}
+    {% endblock %}
   </body>
   {% block footer%}
   <footer>
@@ -44,3 +45,6 @@
   </footer>
   {%endblock%}
 </html>
+
+
+
