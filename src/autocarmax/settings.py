@@ -35,6 +35,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'crispy_forms',
+    'crispy_bootstrap4',
     'main',
     'users',
 ]
@@ -96,6 +98,8 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+LOGIN_REDIRECT_URL='/home/'
+LOGIN_URL= '/login/'
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
@@ -116,6 +120,9 @@ STATIC_URL = 'static/'
 import os
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL= '/media/'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
 # added manually
 STATICFILES_DIRS = [
     BASE_DIR / "static",
