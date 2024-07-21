@@ -5,8 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="" />
     <meta name="author" content="Desmond Opoku Anane" />
+    
 
-    <title>AutoCarView</title>
+    {%block 'title' %}
+    <title>Skimmer Wheels. Car  Service</title>
+    {% endblock %}
+
     {% load static %}
 
     <!-- Bootstrap core CSS -->
@@ -16,7 +20,15 @@
     <link rel="stylesheet" href="{% static 'css/style.css'%}" />
   </head>
   <body>
-    {% block body %} {% endblock %}
+    <!-- {%if messages%}
+    {%for message in messages%}
+    <div>
+      {{message}}
+    </div>
+    {%end for%}
+    {%endif%}
+    {% block body %} 
+    {% endblock %} -->
   </body>
   {% block footer%}
   <footer>
@@ -26,7 +38,7 @@
       </p>
       <p class="mb-1">
         AutoCarView- Best place to Sell, Hire and Buy your Cars</p>
-        < class="mb-0">© Copyright {%now 'Y'%}<a href="">AutoCarMax</a>
+        © Copyright {%now 'Y'%}<a href="">AutoCarMax</a>
       </p>
     </div>
   </footer>
