@@ -24,7 +24,7 @@
     {%for message in messages%}
     <div {%if message.tags %}class ="alert alert-{{message.tags }}"{% endif %}>
       {{ message }}
-      {{message.tags}}
+      <!-- {{message.tags}} -->
     </div>
     {%endfor%}
     {%endif%}

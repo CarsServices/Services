@@ -17,12 +17,15 @@ def login_view(request): # I'm going to create a function that will be responsib
             user= authenticate(username = username, password = password) # this will create a user which will contain the username and the password of the user
             print(user) #this will print a user when  the login is successful
         
-        if user is not None: # if the sign in is successful AND NOT EMPTY then i ll pass this to another page say homepage
-            login(request, user) #then we can login the user with his credentials and provide his username
-            messages.success(request, f'Hello {username}') #welcome message that will be displaying
-            return redirect('home')   #redirecting the user to the home page after loggingin
-        else:  #else maybe the user should input the correct credentials or create a new account
-            pass  #if the sign in isnot  successful  then we will thell the user to login again
+            if user is not None: # if the sign in is successful AND NOT EMPTY then i ll pass this to another page say homepage
+                login(request, user) #then we can login the user with his credentials and provide his username
+                messages.success(request, f'Hello {username}') #welcome message that will be displaying
+                return redirect('home')   #redirecting the user to the home page after loggingin
+            else:  #else maybe the user should input the correct credentials or create a new account
+                messages.success(request, f'An error occured trying to log you in please check your username or password.')  #if the sign in isnot  successful  then we will thell the user to login again
+        else:
+            messages.success(request, f'An error occured trying to log you in please check your username or password.')
+        
     elif request.method=='GET':     #If the  request method is set to get that means we create an instance of authentication form with nothing in it 
         login_form = AuthenticationForm() #setting the login_form so that it can have te AuthenticationForm passed through it
     return render(request, "basic/login.html", {'login_form':login_form})
