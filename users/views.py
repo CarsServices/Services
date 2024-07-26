@@ -24,7 +24,7 @@ def login_view(request):
     else:
         login_form = AuthenticationForm()
     
-    return render(request, "basics/login.html", {'login_form': login_form})
+    return render(request, "basic/login.html", {'login_form': login_form})
 
 
 class RegisterView(View):
@@ -34,17 +34,18 @@ class RegisterView(View):
         return render(request, 'basic/register.html', {'register_form': register_form})
 
     def post(self, request):
-        register_form = UserCreationForm(request=request, data=request.POST)
+        register_form = UserCreationForm(data=request.POST)
         if register_form.is_valid():
             user = register_form.save()
             user.refresh_from_db()
-            password = register_form.cleaned_data.get('password')
-            user = authenticate(username=user.username, password=password)
-            login(request, user) 
+            login(request, user)
             messages.success(
                 request, f'User {user.username} registered successfully.')
             return redirect('home')
-        
+        else:
+            messages.error(request, f'An error occurred trying to register you in.')
+            return render(request, "basic/register.html",{'register_form': register_form})
+
 
 
 
