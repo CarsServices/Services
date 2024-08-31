@@ -1,0 +1,22 @@
+<!-- templates/login.html -->
+{% extends "base/base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block body %}
+<div class="text-center" style="display: flex; align-items: center; justify-content: center; height: 100vh;">
+    <main class="form-signin" style="max-width: 330px; width: 100%;">
+        <form action="" method="post" style="margin-top: 20px;">
+            {% csrf_token %}  <!-- this  cross site request foregery protection protects the user by generating a token for the user whenever  they are inputing data intoo the server -->
+            <img class="mb-4" src="{% static 'images/logo.png' %}" alt="Logo" width="200" height="200" style="display: block; margin: auto;">
+            {{ login_form|crispy }}
+            <button type="submit" style="font-size: 16px; width: 100%; margin-top: 20px; background-color: #007bff; color: white; border: none; padding: 10px; cursor: pointer; transition: background-color 0.3s ease;">
+                Sign In
+            </button>
+        </form>
+    </main>
+</div>
+{% endblock %}
+
+{% block footer %}
+{% endblock %}
