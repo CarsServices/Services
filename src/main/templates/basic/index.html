@@ -13,8 +13,12 @@
       <div>
         <h3 class="float-md-start mb-0">AutoCarMax</h3>
         <nav class="nav nav-masthead justify-content-center float-md-end">
-          <a class="nav-link active" aria-current="page" href="">Home</a>
-          <a class="nav-link" href="">Login</a>
+          {% if request.user.is.authenticated %}
+
+          <a class="nav-link active" aria-current="page" href="{%url 'home' %}">Home </a>
+          {% else %}
+          <a class="nav-link" href="{%url 'login' %}">Login</a>
+          {%endif%}
         </nav>
       </div>
     </header>
@@ -22,7 +26,7 @@
       <h2>Find a deal near you!</h2>
       <p class="lead">Looking to buy or sell a used car? We've got you covered.<br>AutoCarMax is the leading used car marketplace.</p>
       <p class="lead">
-        <a href="" class="btn btn-lg fw-bold" style="padding: 0.5rem 1rem; font-size: 1rem; background-color: #ff5e00; border-color: #007bff; color: white;">Register</a>
+        <a href="{% url 'register' %}" class="btn btn-lg fw-bold" style="padding: 0.5rem 1rem; font-size: 1rem; background-color: #ff5e00; border-color: #007bff; color: white;">Register</a>
       </p>
     </main>
     <footer class="mt-auto text-black-50">
