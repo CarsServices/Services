@@ -173,7 +173,6 @@ yagmail==0.15.293
 yamail==1.0.2
 yarg==0.1.9
 zope.interface==6.2
-=======
 aes-everywhere==1.2.10
 altgraph==0.17.4
 annotated-types==0.6.0
@@ -349,4 +348,3 @@ yagmail==0.15.293
 yamail==1.0.2
 yarg==0.1.9
 zope.interface==6.2
->>>>>>> 3437f9568e4b1d280d02f429b0e357b8f82fd28f
